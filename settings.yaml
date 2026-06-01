@@ -1,0 +1,5 @@
+dpy-path: "/Users/gilberto/Documents/University/Tools/ChronoCode/Service/Analyzers/DpyAnalyzer/DPy_MACOS"
+
+# Environment Overrides
+python: "arch -x86_64 /Users/gilberto/Documents/University/Tools/ChronoCode/.venv_x86/bin/python"
+java-home: "/Users/gilberto/Library/Java/JavaVirtualMachines/openjdk-19.0.1/Contents/Home"
