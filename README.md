@@ -1,4 +1,4 @@
-# ChronoCode
+#ChronoCode
 
 We will build a static analysis system to inspect python code smell trends (using DPy and StaticCodeTracker) for both snapshots (comparing the current code state with its parent revision) and historical commit progressions (categorizing smell introductions/removals by AI vs. Human authorship).
 
@@ -151,6 +151,10 @@ We will build a Local Web GUI to allow users to interact with the analysis engin
    - Uses `matplotlib` and `seaborn` to generate beautiful PNG/SVG charts (e.g., Bar charts of AI vs Human smell introductions, Timeline of smells).
    - Called automatically at the end of a run by `history_analyzer.py` or triggered via the Web GUI.
 
+> [!IMPORTANT]
+> This approach relies strongly on DPy and StaticTracker. Therefore, this repository acknowledge the thanks the following works to realize this project: 
+> Boloori, Aryan, and Tushar Sharma. "DPy: Code Smells Detection Tool for Python." 2025 IEEE/ACM 22nd International Conference on Mining Software Repositories (MSR). IEEE, 2025.
+> Li, Junjie, and Jinqiu Yang. "StaticTracker: A Diff Tool for Static Code Warnings." 2023 IEEE International Conference on Software Maintenance and Evolution (ICSME). IEEE, 2023.
 
 
 
