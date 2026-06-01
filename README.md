@@ -151,14 +151,40 @@ We will build a Local Web GUI to allow users to interact with the analysis engin
    - Uses `matplotlib` and `seaborn` to generate beautiful PNG/SVG charts (e.g., Bar charts of AI vs Human smell introductions, Timeline of smells).
    - Called automatically at the end of a run by `history_analyzer.py` or triggered via the Web GUI.
 
-> [!IMPORTANT]
-> This approach relies strongly on DPy and StaticTracker. Therefore, this repository acknowledge the thanks the following works to realize this project: 
-> Boloori, Aryan, and Tushar Sharma. "DPy: Code Smells Detection Tool for Python." 2025 IEEE/ACM 22nd International Conference on Mining Software Repositories (MSR). IEEE, 2025.
-> Li, Junjie, and Jinqiu Yang. "StaticTracker: A Diff Tool for Static Code Warnings." 2023 IEEE International Conference on Software Maintenance and Evolution (ICSME). IEEE, 2023.
+## Acknowledgements
 
+We would like to extend our gratitude to the following projects and communities that made ChronoCode possible:
 
+### Core Dependencies
+- **[DPy]()** - For comprehensive Python code smell detection and metrics analysis. DPy: Code Smells Detection Tool for Python." 2025 IEEE/ACM 22nd International Conference on Mining Software Repositories (MSR). IEEE, 2025
 
+- **[StaticCodeTracker]()** - Li, Junjie, and Jinqiu Yang. "StaticTracker: A Diff Tool for Static Code Warnings." 2023 IEEE International Conference on Software Maintenance and Evolution (ICSME). IEEE, 2023.
+- **[RefactoringMiner](https://github.com/tsantalis/RefactoringMiner)** - For detecting refactoring operations via JPype integration. 
 
+### Backend & API
+- **[FastAPI](https://fastapi.tiangolo.com/)** - Modern, fast web framework for building APIs
+- **[Python](https://www.python.org/)** - The primary programming language
+
+### Data Visualization & Analysis
+- **[Matplotlib](https://matplotlib.org/)** - For generating high-quality plots and charts
+- **[Seaborn](https://seaborn.pydata.org/)** - For statistical data visualization
+
+### Frontend
+- **[Vanilla HTML/CSS/JavaScript](https://developer.mozilla.org/)** - For clean, dependency-light frontend development
+
+### Development Tools
+- **[Git](https://git-scm.com/)** - Version control system
+- **[JPype](https://jpype.readthedocs.io/)** - For Java-Python integration
+
+### Community & Inspiration
+- Thanks to all contributors and the open-source community for continuous feedback and support
+- Special thanks to the static code analysis and code smell detection research communities
+
+---
+
+**Contributing**: We welcome contributions, bug reports, and feature requests. Please feel free to open an issue or submit a pull request.
+
+**License**: See [LICENSE](LICENSE) file for details.
 
 
 
