@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  chronocode:
+    build: .
+    ports:
+      - "5172:5172"
+    volumes:
+      # Mount the DataStore to persist analysis results locally
+      - ./DataStore:/app/DataStore
+      # Mount local repositories to analyze them
+      # - /path/to/local/repos:/repos
+    environment:
+      - PYTHONUNBUFFERED=1

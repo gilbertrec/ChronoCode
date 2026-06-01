@@ -1,10 +1,23 @@
 #!/bin/bash
-
-# Stop everything if one command fails
 set -e
 
+# Detect OS and Architecture
+OS="$(uname -s)"
+ARCH="$(uname -m)"
+
+# Path to python
+if [ -d ".venv_x86" ] && [ "$OS" = "Darwin" ] && [ "$ARCH" = "arm64" ]; then
+    PYTHON_CMD="arch -x86_64 .venv_x86/bin/python"
+elif [ -d ".venv_x86" ]; then
+    PYTHON_CMD=".venv_x86/bin/python"
+elif [ -d ".venv" ]; then
+    PYTHON_CMD=".venv/bin/python"
+else
+    PYTHON_CMD="python3"
+fi
+
 # Start backend in background
-arch -x86_64 .venv_x86/bin/python UI/backend/server.py &
+$PYTHON_CMD UI/backend/server.py &
 BACKEND_PID=$!
 
 # Start frontend

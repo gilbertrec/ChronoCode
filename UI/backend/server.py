@@ -10,11 +10,25 @@ from typing import List, Dict, Any, Optional
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from pydantic import BaseModel
 import yaml
 
 app = FastAPI(title="ChronoCode API")
 active_jobs = {}
+
+@app.exception_handler(StarletteHTTPException)
+async def custom_http_exception_handler(request, exc):
+    if exc.status_code == 404 and not request.url.path.startswith("/api/"):
+        dist_dir = PROJECT_ROOT / "UI" / "web" / "dist"
+        index_file = dist_dir / "index.html"
+        if index_file.exists():
+            return FileResponse(str(index_file))
+    # Fallback to the default exception handler if needed, or raise
+    from fastapi.exception_handlers import http_exception_handler
+    return await http_exception_handler(request, exc)
 
 app.add_middleware(
     CORSMiddleware,
@@ -104,12 +118,19 @@ class AnalysisRequest(BaseModel):
     workers: Optional[int] = None
 
 def run_analysis_task(req: AnalysisRequest, job_id: str):
-    cmd = [
-        "arch",
-        "-x86_64",
-        os.path.join(PROJECT_ROOT, ".venv_x86", "bin", "python"),
-        str(MAIN_PY),
-    ]
+    venv_python = os.path.join(PROJECT_ROOT, ".venv_x86", "bin", "python")
+    if os.path.exists(venv_python) and sys.platform == "darwin":
+        cmd = [
+            "arch",
+            "-x86_64",
+            venv_python,
+            str(MAIN_PY),
+        ]
+    else:
+        cmd = [
+            sys.executable,
+            str(MAIN_PY),
+        ]
     
     if not req.config_file and req.command_type:
         cmd.append(req.command_type)
@@ -388,6 +409,10 @@ def stop_job(job_id: str):
         del active_jobs[job_id]
         return {"status": "stopped"}
     raise HTTPException(status_code=404, detail="Job not found")
+
+dist_dir = PROJECT_ROOT / "UI" / "web" / "dist"
+if dist_dir.exists():
+    app.mount("/", StaticFiles(directory=str(dist_dir), html=True), name="static")
 
 if __name__ == "__main__":
     import uvicorn
