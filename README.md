@@ -5,6 +5,17 @@ We will build a static analysis system to inspect python code smell trends (usin
 > [!IMPORTANT]
 > **Work in Progress:** This is the version 0.1, not tested yet and further changes (both structural and implementative) are expected. The codebase will change a lot in the next few weeks.
 
+> [!IMPORTANT]
+> **Work in Progress:** This is the version 0.1, I am testing on a macbook Silicon. Therefore, use the following commands to create a proper virtual environment, enabling the launch through Rosetta for Python (needed for JPype, since RefactoringMiner is in Java. )
+
+> ### 1. Force Python to run in x86_64 mode via Rosetta and create the venv
+> arch -x86_64 python3 -m venv .venv_x86
+> ### 2. Activate it (it will still run in x86_64 mode automatically)
+> source .venv_x86/bin/activate
+> ### 3. Install requirements
+> arch -x86_64 python3 -m pip install -r requirements.txt
+
+
 ## Proposed Changes
 
 ChronoCode is currently organized into 4 distinct layers:

@@ -1,0 +1,14 @@
+DataStore/*
+.venv_x86
+.venv
+.DS_Store
+__pycache__
+*.pyc
+Service/StaticCodeTracker/ParseCSVForInput/raw_input/*
+Service/StaticCodeTracker/ParseCSVForInput/generated_for_smell_tracker/*
+Service/StaticCodeTracker/ParseCSVForInput/output_csv/*
+Service/StaticCodeTracker/ParseCSVForInput/output_tex/*
+Service/StaticCodeTracker/ParseCSVForInput/split_reports/*
+Service/StaticCodeTracker/refactoringJava/.idea
+Service/StaticCodeTracker/refactoringJava/target/*
+Service/StaticCodeTracker/refactoringJava/out/*

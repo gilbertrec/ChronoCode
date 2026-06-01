@@ -1,0 +1,20 @@
+# CodeQualityInspector Configuration File
+# ----------------------------------------
+# Run this with: python3 main.py --config default_config.yaml
+
+# Which command to run (snapshot, history, or analyze-data)
+command: snapshot
+
+# Core paths
+project-path: "/Users/gilberto/Documents/University/Tools/Test/TestingCodeFlow"
+dpy-path: "/Users/gilberto/Documents/University/Tools/ChronoCode/Service/Analyzers/DpyAnalyzer/DPy_MACOS"
+
+# Environment Overrides
+python: "arch -x86_64 /Users/gilberto/Documents/University/Tools/ChronoCode/.venv_x86/bin/python"
+java-home: "/Users/gilberto/Library/Java/JavaVirtualMachines/openjdk-19.0.1/Contents/Home"
+
+# History specific settings
+commits: 3
+since: null
+skip-tracker: false
+quiet: false

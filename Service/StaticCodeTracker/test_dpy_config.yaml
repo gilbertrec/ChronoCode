@@ -1,0 +1,9 @@
+loc_repo_path: ../test_mining_micro/crewAI_repo
+remote_repo_path: https://github.com/crewAIInc/crewAI
+save_result_path: ../test_mining_micro/results
+parent_commit: 409892d65fab88e4a390f05c46b399b5a9260463
+parent_report_path: ../test_mining_micro/test_dpyreport_before/before_smells.csv
+child_commit: 00681379740a0f8cf4a4c08f954336ad143cb6c8
+child_report_path: ../test_mining_micro/test_dpyreport_after/after_smells.csv
+static_tool: DesignitePy
+java_jar_path: ./refactoringJava/target/refactoringJava-1.0-SNAPSHOT-jar-with-dependencies.jar
